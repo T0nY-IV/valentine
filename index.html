@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Love you</title>
+</head>
+<body>
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDVjOThlb3pkYmJpbHZyZXFuYXlweHIwYTFxbDExb254aTY0ODdpdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/3DwT4LH6dbRG8/giphy.gif" alt="" id="gif1">
+    
+</body>
+<script>
+    var gif1 = document.getElementById('gif1');
+    setTimeout(function() {
+        gif1.remove();
+        var gif = document.createElement('img');
+        gif.src = "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWJtOHl1eWtxdmc4MThhbTY3M2JuZTB0ZTZqbDc1YzNmc3drbHN5YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c76IJLufpNwSULPk77/giphy.gif";
+        gif.id = "gif";
+        document.body.appendChild(gif);
+        var text = "I love you more than words can say.\n You are my heart, my soul, my reason for everything.\n Every moment with you is a treasure, and without you, nothing else matters.\n You are my forever!\n And here is a little surprise for you. I hope you like it.";
+        var p = document.createElement('p');
+        p.id = "text";
+        document.body.appendChild(p);
+        for (let i = 0; i < text.length; i++) {
+            (function(i) {
+                setTimeout(function() {
+                    p.innerHTML += text[i];
+                }, i * 100);
+            })(i);
+        }
+        setTimeout(function() {
+            var b = document.createElement('button');
+            b.id = "playButton";
+            b.textContent = "▶";
+            document.body.appendChild(b);
+            var a = document.createElement('audio');
+            a.id = "audio";
+            a.src = "https://actions.google.com/sounds/v1/alarms/dinner_bell_triangle.ogg";
+            document.body.appendChild(a);
+
+            var playButton = document.getElementById('playButton');
+            var audio = document.getElementById('audio');
+            playButton.addEventListener('click', function() {
+                if (audio.paused) {
+                    audio.play();
+                    playButton.textContent = '||';
+                } else {
+                    audio.pause();
+                    playButton.textContent = '▶';
+                }
+            });
+        }, 25000);
+    }, 6000);
+</script>
+</html>

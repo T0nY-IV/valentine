@@ -30,26 +30,12 @@
             })(i);
         }
         setTimeout(function() {
-            var b = document.createElement('button');
-            b.id = "playButton";
-            b.textContent = "▶";
-            document.body.appendChild(b);
-            var a = document.createElement('audio');
-            a.id = "audio";
-            a.src = "https://actions.google.com/sounds/v1/alarms/dinner_bell_triangle.ogg";
+            var a = document.createElement('a');
+            a.id = "playButton";
+            a.setAttribute('href','/valentine/clock.py');
+            a.innerHTML = "🎁";
             document.body.appendChild(a);
-
-            var playButton = document.getElementById('playButton');
-            var audio = document.getElementById('audio');
-            playButton.addEventListener('click', function() {
-                if (audio.paused) {
-                    audio.play();
-                    playButton.textContent = '||';
-                } else {
-                    audio.pause();
-                    playButton.textContent = '▶';
-                }
-            });
+            
         }, 25000);
     }, 6000);
 </script>
